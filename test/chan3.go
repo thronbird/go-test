@@ -41,8 +41,9 @@ func main() {
 	case <-ch2:
 
 		fmt.Printf("ch1 case...")
-		//default:
-		//
-		//	fmt.Printf("default go...")
+	default:
+
+		fmt.Printf("default go...")
+		time.Sleep(4)
 	}
 }
