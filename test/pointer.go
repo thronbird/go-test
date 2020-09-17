@@ -14,19 +14,27 @@ type Counter struct {
 }
 
 func main() {
-	CounterMap := map[string]*Counter{"aaa:": {T0: 111, Count: 222}}
-	change(CounterMap)
-	fmt.Println(CounterMap)
+	m := map[string]*Counter{"aaa": {T0: 111, Count: 222}}
+	change(m)
+	fmt.Println(m["aaa"].T0)
+
+	//for i:=1;i<=30;i++{
+	//	go change(m)
+	//}
+	//fmt.Println(m["aaa"].T0)
 }
 
 func change(mp map[string]*Counter) {
 	for _, cnt := range mp {
-		//cnt.mux.Lock()
-		//defer cnt.mux.Unlock()
+		println(&cnt.mux)
+		cnt.mux.Lock()
+		defer cnt.mux.Unlock()
+		println(&cnt.mux)
 		*cnt = Counter{
 			T0:    cnt.T0 + 3,
 			Count: 0,
 		}
+		println(&cnt.mux)
 	}
-	fmt.Println(mp)
+	fmt.Println(mp["aaa"].T0)
 }
