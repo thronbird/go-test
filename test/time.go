@@ -2,14 +2,29 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"time"
 )
 
 func main() {
-	layout := "01/02/2006 3:04:05 PM"
-	t, err := time.Parse(layout, "02/28/2016 9:03:46 PM")
+	//t := time.Now()
+	//print(t.Month())
+	i, err := strconv.ParseInt("1600236899", 10, 64)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
-	fmt.Println(t.Unix())
+	tm := time.Unix(i, 0)
+	fmt.Println(tm)
+
+	//j:= 9898932
+	//print(j/1000)
+
+	k := 872
+	print(k % 100)
+
+	//print(time.Now().Unix()/1000)
+	timestamp := strconv.FormatInt(time.Now().UTC().UnixNano(), 10)
+	fmt.Println(timestamp) // prints: 1436773875771421417
+
+	fmt.Println(time.Now().Unix())
 }
