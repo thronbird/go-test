@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	println(time.Now().Unix())
 	//t := time.Now()
 	//print(t.Month())
 	i, err := strconv.ParseInt("1600236899", 10, 64)
