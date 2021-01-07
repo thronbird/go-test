@@ -10,4 +10,7 @@ func main() {
 
 	s10 := strconv.FormatInt(v, 10)
 	fmt.Printf("%T, %v\n", s10, s10)
+
+	aa := "asfgk"
+	fmt.Print(aa[0:2])
 }
