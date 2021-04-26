@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"testing"
+	"time"
 )
 
 func IntMin(a, b int) int {
@@ -42,4 +43,15 @@ func TestIntMinTableDriven(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestTime(t *testing.T) {
+	timestamp := int(time.Now().Unix())
+	now := int(time.Now().UnixNano())
+
+	deltaSeconds := float64(now-timestamp*1000*1000*1000) / 1000 / 1000 / 1000
+
+	println(timestamp)
+	println(now)
+	print(deltaSeconds)
 }
