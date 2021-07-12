@@ -7,6 +7,10 @@ import (
 )
 
 func main() {
+
+	var t = string2Time("")
+	println(t.IsZero())
+
 	println(time.Now().Unix())
 	//t := time.Now()
 	//print(t.Month())
@@ -28,4 +32,10 @@ func main() {
 	fmt.Println(timestamp) // prints: 1436773875771421417
 
 	fmt.Println(time.Now().Unix())
+}
+
+func string2Time(t string) time.Time {
+	timeTemplate1 := "2006-01-02T15:04:05Z"
+	stamp, _ := time.ParseInLocation(timeTemplate1, t, time.UTC)
+	return stamp
 }
